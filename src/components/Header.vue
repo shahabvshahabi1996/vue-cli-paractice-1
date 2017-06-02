@@ -1,10 +1,11 @@
 <template>
   <header>
-    <h1>{{title}}</h1>
+    <h1 @click="ChangeTitle">{{title}}</h1>
   </header>
 </template>
 
 <script>
+import { bus } from '../main'
 export default {
   data () {
     return {
@@ -12,6 +13,9 @@ export default {
     }
   },
   methods:{
+    ChangeTitle : function(){
+      bus.$emit('TitleChanged' , 'Team');
+    },
   }
 }
 </script>
